@@ -1,0 +1,22 @@
+.main {
+  display: block;
+  position: relative;
+}
+
+/* content */
+.content {
+  &-wrapper {
+    display: block;
+    position: relative;
+    background-color: #fff;
+  }
+  &-container {
+    display: block;
+    position: relative;
+    box-sizing: border-box;
+    width: 100%;
+    max-width: 940px;
+    padding: 0 8px;
+    margin: 0 auto;
+  }
+}

@@ -1,0 +1,61 @@
+{
+    "env": {
+        "browser": true,
+        "commonjs": true,
+        "es6": true
+    },
+    "parser": "babel-eslint",
+    "extends": [
+        "eslint:recommended",
+        "plugin:react/recommended"
+    ],
+    "parserOptions": {
+        "ecmaFeatures": {
+            "jsx": true
+        },
+        "ecmaVersion": 2018,
+        "sourceType": "module"
+    },
+    "plugins": [
+        "react",
+        "header"
+    ],
+    "rules": {
+        "indent": [
+            "error",
+            4
+        ],
+        "linebreak-style": [
+            "error",
+            "unix"
+        ],
+        "quotes": [
+            "error",
+            "single"
+        ],
+        "semi": [
+            "error",
+            "always"
+        ],
+        "max-len": [
+            "error",
+            {
+                "code": 120
+            }
+        ],
+        "react/prop-types": 0,
+        "no-console": 1,
+        "header/header": [
+            2,
+            "line", 
+            [
+                "////////////////////////////////////////////////////////////",
+                " This file is part of project the World-News for Molinos",
+                " Author - Ivan Popov",
+                " Site - ivan-popov.ru",
+                " Copyright (C) 2018.",
+                "////////////////////////////////////////////////////////////"
+            ]
+        ]
+    }
+}

@@ -1,0 +1,28 @@
+//////////////////////////////////////////////////////////////
+// This file is part of project the World-News for Molinos
+// Author - Ivan Popov
+// Site - ivan-popov.ru
+// Copyright (C) 2018.
+//////////////////////////////////////////////////////////////
+
+import React from 'react';
+import 'normalize.css';
+import '../styles/css/styles.css';
+
+//////////////////////////////////////////////////////////////
+class Application extends React.PureComponent {
+    render() {
+        return (
+            <div>
+                <div>
+                    {this.props.children}
+                </div>
+            </div>
+        );
+    }
+}
+
+//////////////////////////////////////////////////////////////
+export default Application;
+
+//////////////////////////////////////////////////////////////
