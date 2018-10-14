@@ -1,0 +1,35 @@
+.links-container {
+  display: block;
+  position: relative;
+}
+
+.links-list {
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-flow: row nowrap;
+  justify-content: flex-end;
+  &.right {
+    justify-content: flex-end;
+  }
+}
+.links-item {
+  flex: 0 0 auto;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  height: 28px;
+}
+
+/* icons */
+.icon {
+  &.appstore {
+    display: block;
+    width: 84px;
+    height: 28px;
+    background-image: url('./images/appstore.png');
+    background-repeat: no-repeat;
+    background-position: 0 0;
+    background-size: contain;
+  }
+}

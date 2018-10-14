@@ -6,6 +6,8 @@
 //////////////////////////////////////////////////////////////
 
 import React from 'react';
+import Banner from './Banner/Banner';
+import News from './News/News';
 import styles from './main.css';
 
 //////////////////////////////////////////////////////////////
@@ -13,7 +15,12 @@ import styles from './main.css';
 const Main = () => {
     return (
         <div className={styles.main}>
-            Main page
+            <Banner/>
+            <div className={styles.contentWrapper}>
+                <div className={styles.contentContainer}>
+                    <News />
+                </div>
+            </div>
         </div>
     );
 };

@@ -6,25 +6,23 @@
 //////////////////////////////////////////////////////////////
 
 import React from 'react';
-import 'normalize.css';
-import '../styles/css/styles.css';
-import Footer from './Footer/Footer';
+import styles from './pagination.css';
 
 //////////////////////////////////////////////////////////////
-class Application extends React.PureComponent {
+class Pagination extends React.Component {
     render() {
         return (
-            <div>
-                <div style={{padding: '0 0 15px'}}>
-                    {this.props.children}
+            <div className={styles.wrapper}>
+                <div className={styles.pagination}>
+                    <div className={styles.paginationItem}>1</div>
+                    <div className={styles.paginationItem}>2</div>
+                    <div className={styles.paginationItem}>3</div>
                 </div>
-                <Footer />
             </div>
         );
     }
 }
-
 //////////////////////////////////////////////////////////////
-export default Application;
+export default Pagination;
 
 //////////////////////////////////////////////////////////////
