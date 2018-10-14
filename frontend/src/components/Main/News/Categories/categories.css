@@ -1,0 +1,33 @@
+.categories-container {
+  display: block;
+  position: relative;
+  box-sizing: border-box;
+  padding-top: 30px;
+}
+
+.categories {
+  &-list {
+    display: flex;
+    flex-flow: row nowrap;
+    justify-content: space-between;
+    padding: 5px 0;
+  }
+  &-item {  
+    font-family: 'HelveticaNeue', sans-serif;
+    font-size: 11px;
+    line-height: 1.2;
+    color: #d8d8d8;
+    text-align: center;
+    font-weight: 500;
+    font-style: normal;
+    text-transform: none;
+    text-decoration: none;
+    cursor: pointer;
+    &.active {
+      color: #f9621e;
+    }
+    &:hover {
+      color: #f9621e;
+    }
+  }
+}
