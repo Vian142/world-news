@@ -4,39 +4,21 @@
 // Site - ivan-popov.ru
 // Copyright (C) 2018.
 //////////////////////////////////////////////////////////////
-
-import React from 'react';
-import _ from 'lodash';
-import classnames from 'classnames';
-import styles from './categories.css';
+import { connect } from 'react-redux';
 
 //////////////////////////////////////////////////////////////
-const CategoriesItem = ({ title, active }) => (
-    <div className={classnames(styles.categoriesItem, (active && styles.active))}>
-        {title}
-    </div>
-);
+import CategoriesView from './CategoriesView';
 
 //////////////////////////////////////////////////////////////
-const Categories = ({ categories }) => {
-    if(_.isEmpty(categories)) return <div className={styles.categoriesContainer} />;
-    categories.unshift({ _id: 'all', title: 'Все' });
-    return (
-        <div className={styles.categoriesContainer}>
-            <div className={styles.categoriesList}>
-                {
-                    _.map(
-                        categories,
-                        (category, index) => <CategoriesItem
-                            key={index}
-                            {...category}
-                            active={index == 0} />
-                    )
-                }
-            </div>
-        </div>
-    );
+const mapStateToProps = ({ category, categories }) => {
+    return {
+        activeCategory: category,
+        categories:  [{ _id: 'all', title: 'Все' }, ...categories]
+    };
 };
+
+//////////////////////////////////////////////////////////////
+const Categories = connect(mapStateToProps)(CategoriesView);
 
 //////////////////////////////////////////////////////////////
 export default Categories;

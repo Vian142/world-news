@@ -11,17 +11,17 @@ import classnames from 'classnames';
 import styles from './styles.css';
 
 //////////////////////////////////////////////////////////////
-const SelectItem = ({ _id, label, onClick }) => (
+const SelectItem = ({ _id, title, onClick }) => (
     <div className={styles.selectListItem} onClick={() => onClick(_id)} >
         <span className={styles.selectListItemText}>
-            {label}
+            {title}
         </span>
     </div>
 );
 
 //////////////////////////////////////////////////////////////
 const SelectList = ({ show, items, onClickItem }) => {
-    if(!show) return <div/>;
+    if(!show) return <div />;
     return (
         <div className={styles.selectListWrapper}>
             <div className={styles.selectList}>
@@ -43,7 +43,7 @@ class SelectInput extends React.Component {
         };
     }
 
-    toogleShow = () => this.setState({ show: !this.state.show });
+    toggleShow = () => this.setState({ show: !this.state.show });
 
     onClose = () => this.setState({ show: false });
 
@@ -61,14 +61,18 @@ class SelectInput extends React.Component {
         const { selected, placeholder, stylesContainer, items } = this.props;
 
         const selectedItem = _.find(items, { _id: selected });
-        const selectedLabel = _.get(selectedItem, 'label');
+        const selectedTitle = _.get(selectedItem, 'title');
 
         return (
             <div className={classnames(styles.inputContainer, stylesContainer)}>
-                <div className={classnames(styles.selectInputContainer, show && styles.active)}
-                    onClick={this.toogleShow}>
-                    <span className={classnames(styles.selectedText, show && styles.active)}>
-                        {selectedLabel || placeholder || ''}
+                <div className={
+                    classnames(styles.selectInputContainer, show && styles.active, selectedItem && styles.selected)
+                }
+                onClick={this.toggleShow}>
+                    <span className={
+                        classnames(styles.selectedText, show && styles.active, selectedItem && styles.selected)
+                    }>
+                        {selectedTitle || placeholder || ''}
                     </span>
                 </div>
                 <SelectList items={items} show={show} onClickItem={this.onClickItem} />

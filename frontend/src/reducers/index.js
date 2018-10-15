@@ -4,22 +4,22 @@
 // Site - ivan-popov.ru
 // Copyright (C) 2018.
 //////////////////////////////////////////////////////////////
-import { connect } from 'react-redux';
+import { combineReducers } from 'redux';
+import news from './news';
+import categories from './categories';
+import filter from './filter';
 
 //////////////////////////////////////////////////////////////
-import NewsFeedView from './NewsFeedViews';
 
-//////////////////////////////////////////////////////////////
-const mapStateToProps = ({ news }) => (
+const reducer = combineReducers(
     {
-        news
+        news,
+        filter,
+        categories
     }
 );
 
 //////////////////////////////////////////////////////////////
-const NewsFeed = connect(mapStateToProps)(NewsFeedView);
-
-//////////////////////////////////////////////////////////////
-export default NewsFeed;
+export default reducer;
 
 //////////////////////////////////////////////////////////////

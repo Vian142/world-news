@@ -22,14 +22,14 @@ const Content = () => (
 //////////////////////////////////////////////////////////////
 const Banner = () => (
     <div className={styles.bannerWrapper}>
-        {true && <div className={styles.bannerContainer}>
+        {false && <div className={styles.bannerContainer}>
             <Content />
 
             <div className={styles.bannerBottom}>
                 <span className={styles.addNewsButton}>Добавить новость</span>
             </div>
         </div>}
-        {false && <div className={styles.bannerContainer}>
+        {true && <div className={styles.bannerContainer}>
             <div className={styles.bannerCard}>
                 <Form />
             </div>
