@@ -10,7 +10,7 @@ import Form from './Form/Form';
 import styles from './banner.css';
 
 //////////////////////////////////////////////////////////////
-const Content = () => (
+const BannerText = () => (
     <div className={styles.bannerCard}>
         <div className={styles.bannerContent}>
             <div className={styles.bannerTitle}>Мировые новости</div>
@@ -20,22 +20,40 @@ const Content = () => (
 );
 
 //////////////////////////////////////////////////////////////
-const Banner = () => (
-    <div className={styles.bannerWrapper}>
-        {false && <div className={styles.bannerContainer}>
-            <Content />
+class Banner extends React.Component {
+    constructor(props) {
+        super(props);
+        this.state = {
+            showForm: false
+        };
+    }
 
-            <div className={styles.bannerBottom}>
-                <span className={styles.addNewsButton}>Добавить новость</span>
+    onShowForm = () => this.setState({ showForm: true })
+    
+    onCloseForm = () => this.setState({showForm: false})
+
+    render() {
+        const { showForm } = this.state;
+        return (
+            <div className={styles.bannerWrapper}>
+                {!showForm && <div className={styles.bannerContainer}>
+                    <BannerText />
+
+                    <div className={styles.bannerBottom}>
+                        <span className={styles.addNewsButton} onClick={this.onShowForm}>
+                            Добавить новость
+                        </span>
+                    </div>
+                </div>}
+                {showForm && <div className={styles.bannerContainer}>
+                    <div className={styles.bannerCard}>
+                        <Form onClose={this.onCloseForm}/>
+                    </div>
+                </div>}
             </div>
-        </div>}
-        {true && <div className={styles.bannerContainer}>
-            <div className={styles.bannerCard}>
-                <Form />
-            </div>
-        </div>}
-    </div>
-);
+        );
+    }
+}
 
 //////////////////////////////////////////////////////////////
 export default Banner;

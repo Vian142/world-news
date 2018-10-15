@@ -10,7 +10,6 @@ import _ from 'lodash';
 import styles from './newstop.css';
 
 //////////////////////////////////////////////////////////////
-
 const NewsItem = ({ _id, title, views, date }) => (
     <div className={styles.newsItem}>
         <div className={styles.title}>

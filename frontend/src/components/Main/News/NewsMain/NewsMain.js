@@ -4,24 +4,25 @@
 // Site - ivan-popov.ru
 // Copyright (C) 2018.
 //////////////////////////////////////////////////////////////
+import _ from 'lodash';
 import { connect } from 'react-redux';
 
 //////////////////////////////////////////////////////////////
-
-import PreviewView from './PreviewView';
-
-//////////////////////////////////////////////////////////////
-
-const mapStateToProps = ({ categories }) => (
-    {
-        categories
-    }
-);
+import NewsMainView from './NewsMainView';
 
 //////////////////////////////////////////////////////////////
-const Preview = connect(mapStateToProps)(PreviewView);
+const mapStateToProps = ({ news }) => {
+    const sortedNews = _.sortBy(news, ['views']);
+    const mainNews = _.get(sortedNews, '0', []);
+    return {
+        news: mainNews
+    };
+};
 
 //////////////////////////////////////////////////////////////
-export default Preview;
+const NewsMain = connect(mapStateToProps)(NewsMainView);
+
+//////////////////////////////////////////////////////////////
+export default NewsMain;
 
 //////////////////////////////////////////////////////////////

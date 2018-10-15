@@ -58,13 +58,13 @@ class SelectInput extends React.Component {
 
     render() {
         const { show } = this.state;
-        const { selected, placeholder, stylesContainer, items } = this.props;
+        const { selected, placeholder, error, items } = this.props;
 
         const selectedItem = _.find(items, { _id: selected });
         const selectedTitle = _.get(selectedItem, 'title');
 
         return (
-            <div className={classnames(styles.inputContainer, stylesContainer)}>
+            <div className={classnames(styles.inputContainer, error && styles.error)}>
                 <div className={
                     classnames(styles.selectInputContainer, show && styles.active, selectedItem && styles.selected)
                 }

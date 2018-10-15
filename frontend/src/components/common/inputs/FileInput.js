@@ -25,11 +25,11 @@ class FileInput extends React.Component {
     }
 
     clearFile = () => {
-        if(this.props.onChange) this.props.onChange(null);
+        if(this.props.clear) this.props.clear(null);
     }
 
     render() {
-        const { file, name = '', placeholder, stylesInput, stylesContainer } = this.props;
+        const { file, name = '', placeholder, error } = this.props;
 
         const fileName = _.get(file, 'name');
 
@@ -38,15 +38,16 @@ class FileInput extends React.Component {
             type: 'file',
             name: 'fileInput',
             onChange: this.fileSelectedHandler,
-            className: classnames(styles.inputFile, stylesInput)
+            className: classnames(styles.inputFile)
         };
 
         return (
-            <div className={classnames(styles.inputContainer, stylesContainer)}>
-                <label htmlFor={`fileInput${name}`} className={styles.inputFileLabel}>
+            <div className={classnames(styles.inputContainer, file && styles.noEmpty, error && styles.error)}>
+                <label htmlFor={`fileInput${name}`}
+                    className={classnames(styles.inputFileLabel, file && styles.noEmpty)}>
                     {fileName || placeholder || 'Upload file'}
                 </label>
-                {fileName && <span className={styles.inputFileClear} onClick={this.clearFile}/>}
+                {fileName && <span className={styles.inputFileClear} onClick={this.clearFile} title='Удалить'/>}
                 <input {...properties} />
             </div>
         );

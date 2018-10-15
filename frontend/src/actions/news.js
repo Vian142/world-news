@@ -10,16 +10,17 @@ export const EDIT_NEWS = 'EDIT_NEWS';
 export const DELETE_NEWS = 'DELETE_NEWS';
 
 //////////////////////////////////////////////////////////////
-let nextId = 1;
+import {v4} from 'uuid';
 
 //////////////////////////////////////////////////////////////
 const addNews = ({title, date, category, thumbnail}) => ({
     type: ADD_NEWS,
-    _id: nextId++,
+    _id: v4(),
     title,
     date,
     category,
-    thumbnail
+    thumbnail,
+    views: 0
 });
 
 const deleteNews = _id => ({

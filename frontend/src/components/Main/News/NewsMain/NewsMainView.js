@@ -4,24 +4,20 @@
 // Site - ivan-popov.ru
 // Copyright (C) 2018.
 //////////////////////////////////////////////////////////////
-import { connect } from 'react-redux';
+import React from 'react';
+import _ from 'lodash';
+import Preview from '../Preview/Preview';
 
 //////////////////////////////////////////////////////////////
+const NewsMainView = ({ news }) => {
 
-import PreviewView from './PreviewView';
-
-//////////////////////////////////////////////////////////////
-
-const mapStateToProps = ({ categories }) => (
-    {
-        categories
-    }
-);
+    if(_.isEmpty(news)) return <div />;
+    return (
+        <Preview {...news} />
+    );
+};
 
 //////////////////////////////////////////////////////////////
-const Preview = connect(mapStateToProps)(PreviewView);
-
-//////////////////////////////////////////////////////////////
-export default Preview;
+export default NewsMainView;
 
 //////////////////////////////////////////////////////////////
