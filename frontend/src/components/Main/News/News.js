@@ -9,7 +9,7 @@ import React from 'react';
 import classnames from 'classnames';
 import Categories from './Categories/Categories';
 import Preview from './Preview/Preview';
-import NewsList from './NewsList/NewsList';
+import NewsTop from './NewsTop/NewsTop';
 import NewsFeed from './NewsFeed/NewsFeed';
 import styles from './news.css';
 
@@ -27,44 +27,6 @@ const news = {
 };
 
 //////////////////////////////////////////////////////////////
-const categories = [
-    { _id: '0', title: 'Политика' },
-    { _id: '1', title: 'Спорт' },
-    { _id: '2', title: 'Происшествия' },
-    { _id: '3', title: 'Наука' },
-    { _id: '4', title: 'Бизнес' },
-];
-
-//////////////////////////////////////////////////////////////
-const mainNews = [
-    {
-        _id: 'ljh9h-ad4d5as-hcv-asd13qw',
-        title: 'Найдены виновные в обвале рубля',
-        date: '01:50, 11 сентября 2018',
-        thumbnail: Image0,
-        category: 'Спорт',
-        social: '/',
-        views: 320
-    },
-    {
-        _id: '0ksd9d-ad4d5as-asdwe4a-asd13qw',
-        title: 'НАСА отреагировало на обвинения в продырявливании "Союза"',
-        date: '01:50, 11 сентября 2018',
-        thumbnail: Image0,
-        category: 'Спорт',
-        social: '/',
-        views: 320
-    },
-    {
-        _id: 'd5s-ad4d5as-asdwe4a-as498jw',
-        title: 'Меркель допустила атаку Германии на Сирию',
-        date: '01:50, 11 сентября 2018',
-        category: 'Спорт',
-        views: 320
-    }
-];
-
-//////////////////////////////////////////////////////////////
 class News extends React.Component {
     constructor(props) {
         super(props);
@@ -80,7 +42,7 @@ class News extends React.Component {
         return (
             <div className={styles.wrapper}>
                 <div className={styles.categoriesWrapper}>
-                    <Categories categories={categories} />
+                    <Categories/>
                 </div>
                 <div className={styles.middle}>
                     <div className={styles.columns}>
@@ -100,7 +62,7 @@ class News extends React.Component {
                                     Главные новости
                                 </div>
                             </div>
-                            <NewsList news={mainNews} />
+                            <NewsTop/>
                         </div>
                     </div>
                 </div>

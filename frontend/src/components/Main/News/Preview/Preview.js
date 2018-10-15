@@ -7,8 +7,10 @@
 
 import React from 'react';
 import classnames from 'classnames';
+import Placeholder from './placeholder-image.jpg';
 import styles from './preview.css';
 
+//////////////////////////////////////////////////////////////
 const Social = () => (
     <div className={styles.socialList}>
         <a href='/' className={styles.socialLink}>
@@ -17,11 +19,12 @@ const Social = () => (
     </div>
 );
 
+//////////////////////////////////////////////////////////////
 const Preview = ({ thumbnail, title, date, category }) => (
     <div className={styles.preview}>
         <a href='/' className={styles.previewLink}>
             <span className={styles.previewImage}
-                style={{ backgroundImage: `url(${thumbnail})` }}
+                style={{ backgroundImage: `url(${thumbnail || Placeholder})` }}
             />
             <span className={styles.previewInfo}>
                 <span className={styles.date}>{date}</span>
@@ -37,4 +40,7 @@ const Preview = ({ thumbnail, title, date, category }) => (
     </div>
 );
 
+//////////////////////////////////////////////////////////////
 export default Preview;
+
+//////////////////////////////////////////////////////////////

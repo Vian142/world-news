@@ -7,7 +7,7 @@
 
 import React from 'react';
 import _ from 'lodash';
-import styles from './newslist.css';
+import styles from './newstop.css';
 
 //////////////////////////////////////////////////////////////
 
@@ -26,7 +26,7 @@ const NewsItem = ({ _id, title, views, date }) => (
 );
 
 //////////////////////////////////////////////////////////////
-const NewsList = ({news}) => (
+const NewsTop = ({news}) => (
     <div className={styles.wrapper}>
         <div className={styles.container}>
             <div className={styles.newsList}>
@@ -39,6 +39,6 @@ const NewsList = ({news}) => (
 );
 
 //////////////////////////////////////////////////////////////
-export default NewsList;
+export default NewsTop;
 
 //////////////////////////////////////////////////////////////

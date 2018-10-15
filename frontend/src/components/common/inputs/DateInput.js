@@ -14,9 +14,6 @@ import styles from './styles.css';
 class DateInput extends React.Component {
     constructor(props) {
         super(props);
-        this.state = {
-            value: ''
-        };
     }
 
     onChange = (event) => {
@@ -25,18 +22,18 @@ class DateInput extends React.Component {
     }
 
     render() {
-        const { value, name, placeholder, stylesInput, stylesContainer} = this.props;
+        const { value, name, placeholder} = this.props;
         const properties = {
             type: 'text',
             name,
             value,
             placeholder: placeholder || '...',
             onChange: this.onChange,
-            className: classnames(styles.input, stylesInput)
+            className: classnames(styles.input, value && styles.noEmpty)
         };
 
         return (
-            <div className={classnames(styles.inputContainer, stylesContainer)}>
+            <div className={classnames(styles.inputContainer, value && styles.noEmpty)}>
                 <input {...properties}/>
             </div>
         );

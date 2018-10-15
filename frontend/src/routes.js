@@ -9,6 +9,9 @@ import React from 'react';
 import { Router, Switch, Route } from 'react-router';
 import { createBrowserHistory } from 'history';
 import { BrowserRouter } from 'react-router-dom';
+import { Provider } from 'react-redux';
+import store from './store';
+
 import Application from './components/Application';
 import Main from './components/Main/Main';
 import NotFound from './components/NotFound/NotFound';
@@ -17,16 +20,18 @@ const history = createBrowserHistory();
 
 //////////////////////////////////////////////////////////////
 const routes = () => (
-    <BrowserRouter>
-        <Router history={history}>
-            <Application>
-                <Switch component={Application}>
-                    <Route exact path="/" component={Main} />
-                    <Route exact path="/*" component={NotFound} />
-                </Switch>
-            </Application>
-        </Router>
-    </BrowserRouter>
+    <Provider store={store}>
+        <BrowserRouter>
+            <Router history={history}>
+                <Application>
+                    <Switch component={Application}>
+                        <Route exact path="/" component={Main} />
+                        <Route exact path="/*" component={NotFound} />
+                    </Switch>
+                </Application>
+            </Router>
+        </BrowserRouter>
+    </Provider>
 );
 
 //////////////////////////////////////////////////////////////

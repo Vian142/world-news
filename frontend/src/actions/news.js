@@ -4,29 +4,34 @@
 // Site - ivan-popov.ru
 // Copyright (C) 2018.
 //////////////////////////////////////////////////////////////
-import { connect } from 'react-redux';
-import { addNews } from '../../../../actions';
+
+export const ADD_NEWS = 'ADD_NEWS';
+export const EDIT_NEWS = 'EDIT_NEWS';
+export const DELETE_NEWS = 'DELETE_NEWS';
 
 //////////////////////////////////////////////////////////////
-import FormView from './FormView';
+let nextId = 1;
 
 //////////////////////////////////////////////////////////////
-const mapStateToProps = ({ categories }) => (
-    {
-        categories
-    }
-);
+const addNews = ({title, date, category, thumbnail}) => ({
+    type: ADD_NEWS,
+    _id: nextId++,
+    title,
+    date,
+    category,
+    thumbnail
+});
 
-const mapDispatchToProps = dispatch => {
-    return {
-        onAdd: news => dispatch(addNews(news))
-    };
+const deleteNews = _id => ({
+    type: DELETE_NEWS,
+    _id
+});
+
+
+//////////////////////////////////////////////////////////////
+export {
+    addNews,
+    deleteNews
 };
-
-//////////////////////////////////////////////////////////////
-const Form = connect(mapStateToProps,mapDispatchToProps)(FormView);
-
-//////////////////////////////////////////////////////////////
-export default Form;
 
 //////////////////////////////////////////////////////////////

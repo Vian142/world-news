@@ -4,29 +4,24 @@
 // Site - ivan-popov.ru
 // Copyright (C) 2018.
 //////////////////////////////////////////////////////////////
+import _ from 'lodash';
 import { connect } from 'react-redux';
-import { addNews } from '../../../../actions';
 
 //////////////////////////////////////////////////////////////
-import FormView from './FormView';
+import NewsTopView from './NewsTopView';
 
 //////////////////////////////////////////////////////////////
-const mapStateToProps = ({ categories }) => (
-    {
-        categories
-    }
-);
-
-const mapDispatchToProps = dispatch => {
+const mapStateToProps = ({ news }) => {
+    const sortedNews = _.sortBy(news, ['views']);
     return {
-        onAdd: news => dispatch(addNews(news))
+        news: sortedNews
     };
 };
 
 //////////////////////////////////////////////////////////////
-const Form = connect(mapStateToProps,mapDispatchToProps)(FormView);
+const NewsTop = connect(mapStateToProps)(NewsTopView);
 
 //////////////////////////////////////////////////////////////
-export default Form;
+export default NewsTop;
 
 //////////////////////////////////////////////////////////////
