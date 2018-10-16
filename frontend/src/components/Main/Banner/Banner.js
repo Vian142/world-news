@@ -7,6 +7,7 @@
 
 import React from 'react';
 import Form from './Form/Form';
+import moment from 'moment';
 import styles from './banner.css';
 
 //////////////////////////////////////////////////////////////
@@ -14,7 +15,9 @@ const BannerText = () => (
     <div className={styles.bannerCard}>
         <div className={styles.bannerContent}>
             <div className={styles.bannerTitle}>Мировые новости</div>
-            <div className={styles.bannerDate}>12 сентября 2018, среда, 17:07</div>
+            <div className={styles.bannerDate}>
+                {moment().locale('ru').format('DD MMMM YYYY, dddd')}
+            </div>
         </div>
     </div>
 );
