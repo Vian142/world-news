@@ -15,7 +15,7 @@
   "scripts": {
     "clean-dist": "rm -f -r -d dist",
     "dev": "webpack-dev-server --config ./webpack/webpack.dev.js --mode development",
-    "build": "webpack -p --config ./webpack/webpack.prod.js"
+    "build": "webpack -p --progress --config ./webpack/webpack.prod.js"
   },
   "browser": {
     "net": false,

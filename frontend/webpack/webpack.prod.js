@@ -31,7 +31,10 @@ module.exports = {
                 test: /\.css$/,
                 use: [
                     {
-                        loader: 'style-loader',
+                        loader: MiniCssExtractPlugin.loader,
+                        options: {
+                            publicPath: '../'
+                        }
                     },
                     {
                         loader: 'css-loader',
@@ -87,13 +90,31 @@ module.exports = {
         module: 'empty'
     },
     optimization: {
-        minimize: true,
-        minimizer: [new UglifyJsPlugin({
-            include: /\.min\.js$/
-        })]
+        minimizer: [
+            new UglifyJsPlugin({
+                cache: true,
+                parallel: true,
+                uglifyOptions: {
+                    compress: true,
+                    ecma: 6,
+                    mangle: true
+                },
+                extractComments: false,
+                sourceMap: true
+            })
+        ]
     },
-    plugins: [],
-    devtool: 'eval-source-map'
+    plugins: [
+        new webpack.DefinePlugin({
+            'process.env': {
+                NODE_ENV: JSON.stringify('production')
+            },
+        }),
+        new MiniCssExtractPlugin({
+            filename: 'styles/[name].css',
+        })
+    ],
+    devtool: false
 };
 
 
