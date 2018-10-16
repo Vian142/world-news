@@ -1,0 +1,40 @@
+.header {
+  display: block;
+  position: relative;
+  box-sizing: border-box;
+  padding: 10px 5px;
+  width: 100%;
+  max-width: 100%;
+  min-height: 50px;
+  background-color: #000;
+  &-container {
+    display: flex;
+    flex-flow: row nowrap;
+    justify-content: flex-start;
+  }
+}
+
+/* logo */
+.logo {
+  flex: 0 0 200px;
+  padding: 5px 0 0;
+  display: block;
+  box-sizing: border-box;
+  &-link {
+    display: block;
+    box-sizing: border-box;
+    font-family: 'HelveticaNeue', sans-serif;
+    font-size: 16px;
+    line-height: 1.2;
+    color: #fff;
+    font-weight: 700;
+    font-style: normal;
+    text-decoration: none;
+    text-align: center;
+    text-transform: uppercase;
+  }
+}
+
+.menu {
+  padding: 5px 0 0 15px;
+}

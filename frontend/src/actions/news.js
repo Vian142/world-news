@@ -8,6 +8,7 @@
 export const ADD_NEWS = 'ADD_NEWS';
 export const EDIT_NEWS = 'EDIT_NEWS';
 export const DELETE_NEWS = 'DELETE_NEWS';
+export const ADD_VIEW = 'ADD_VIEW';
 
 //////////////////////////////////////////////////////////////
 import {v4} from 'uuid';
@@ -23,15 +24,24 @@ const addNews = ({title, date, category, thumbnail}) => ({
     views: 0
 });
 
+//////////////////////////////////////////////////////////////
 const deleteNews = _id => ({
     type: DELETE_NEWS,
     _id
 });
 
 //////////////////////////////////////////////////////////////
+const addView = news => ({
+    type: ADD_VIEW,
+    ...news,
+    views: news.views + 1
+});
+
+//////////////////////////////////////////////////////////////
 export {
     addNews,
-    deleteNews
+    deleteNews,
+    addView
 };
 
 //////////////////////////////////////////////////////////////

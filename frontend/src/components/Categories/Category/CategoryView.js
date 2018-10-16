@@ -6,26 +6,17 @@
 //////////////////////////////////////////////////////////////
 
 import React from 'react';
-import {withRouter} from 'react-router-dom';
-import 'normalize.css';
-import '../styles/css/styles.css';
-import Footer from './Footer/Footer';
 
 //////////////////////////////////////////////////////////////
-class Application extends React.PureComponent {
+class CategoryView extends React.PureComponent {
     render() {
         return (
-            <div>
-                <div style={{padding: '0 0 15px'}}>
-                    {this.props.children}
-                </div>
-                <Footer />
-            </div>
+            <div>Список новостей из категории ... </div>
         );
     }
 }
 
 //////////////////////////////////////////////////////////////
-export default withRouter(Application);
+export default CategoryView;
 
 //////////////////////////////////////////////////////////////

@@ -6,26 +6,15 @@
 //////////////////////////////////////////////////////////////
 
 import React from 'react';
-import {withRouter} from 'react-router-dom';
-import 'normalize.css';
-import '../styles/css/styles.css';
-import Footer from './Footer/Footer';
 
 //////////////////////////////////////////////////////////////
-class Application extends React.PureComponent {
-    render() {
-        return (
-            <div>
-                <div style={{padding: '0 0 15px'}}>
-                    {this.props.children}
-                </div>
-                <Footer />
-            </div>
-        );
-    }
-}
+const NewsPageView = () => {
+    return (
+        <div>Страница новости</div>
+    );
+};
 
 //////////////////////////////////////////////////////////////
-export default withRouter(Application);
+export default NewsPageView;
 
 //////////////////////////////////////////////////////////////
