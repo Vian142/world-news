@@ -10,9 +10,7 @@ const webpack = require('webpack');
 const { resolve } = require('path');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
-
-//////////////////////////////////////////////////////////////
-const devMode = process.env.NODE_ENV !== 'production';
+const UglifyJsPlugin = require('uglifyjs-webpack-plugin');
 
 //////////////////////////////////////////////////////////////
 module.exports = {
@@ -78,14 +76,21 @@ module.exports = {
     },
     entry: '../src/index.js',
     output: {
-        filename: 'js/bundle.[hash].min.js',
+        filename: 'js/bundle.min.js',
         path: resolve(__dirname, '../dist'),
         publicPath: '/',
     },
+    mode: 'production',
     node: {
         child_process: 'empty',
         fs: 'empty',
         module: 'empty'
+    },
+    optimization: {
+        minimize: true,
+        minimizer: [new UglifyJsPlugin({
+            include: /\.min\.js$/
+        })]
     },
     plugins: [],
     devtool: 'eval-source-map'

@@ -15,7 +15,7 @@
   "scripts": {
     "clean-dist": "rm -f -r -d dist",
     "dev": "webpack-dev-server --config ./webpack/webpack.dev.js --mode development",
-    "build": "webpack --mode production --config ./webpack/webpack.prod.js"
+    "build": "webpack -p --config ./webpack/webpack.prod.js"
   },
   "browser": {
     "net": false,
@@ -60,6 +60,7 @@
     "redux-immutablejs": "0.0.8",
     "sass-loader": "^7.1.0",
     "style-loader": "^0.23.1",
+    "uglifyjs-webpack-plugin": "^2.0.1",
     "webpack": "^4.19.1",
     "webpack-cli": "^3.1.0",
     "webpack-dev-server": "^3.1.8"

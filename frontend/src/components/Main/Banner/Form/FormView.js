@@ -55,6 +55,22 @@ class FormView extends React.Component {
         }
     }
 
+    clearForm = (callback) => {
+        this.setState(
+            {
+                preview: '',
+                values: {
+                    title: '',
+                    date: '',
+                    category: '',
+                    thumbnail: null
+                },
+                errors: []
+            },
+            () => { if(callback) callback(); }
+        );
+    }
+
     clearThumbnail = () => {
         this.setState(({ values }) => {
             return {
@@ -88,10 +104,13 @@ class FormView extends React.Component {
         const errors = this.validation();
 
         if(!_.isEmpty(errors)) {
-            this.setState({errors});
+            this.setState({ errors });
         } else if(this.props.onAdd) {
             const news = this.state.values;
             this.props.onAdd(news);
+            this.clearForm(
+                this.props.onClose
+            );
         }
     }
 
@@ -101,12 +120,12 @@ class FormView extends React.Component {
 
     render() {
         const { values, errors } = this.state;
-        const { categories} = this.props;
+        const { categories } = this.props;
         const { title = '', date, category, thumbnail } = values;
         return (
             <div className={styles.wrapper}>
                 <div className={styles.container}>
-                    <span className={styles.closeButton} onClick={this.onClose}/>
+                    <span className={styles.closeButton} onClick={this.onClose} />
                     <div className={styles.title}>Добавить новость</div>
                     <form className={styles.form} onSubmit={this.handleSubmit}>
                         <div className={styles.inputBlock}>

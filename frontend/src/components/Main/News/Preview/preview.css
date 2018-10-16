@@ -80,3 +80,45 @@
     background-color: #f9621e;
   }
 }
+
+.preview-social {
+  display: block;
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  z-index: 5;
+}
+
+/* social list */
+.social-list {
+  display: block;
+  z-index: 5;
+}
+
+.social-link {
+  display: inline-block;
+  box-sizing: border-box;
+  height: 15px;
+  width: 15px;
+  padding: 0 3px;
+  margin: 0 5px;
+  &:last-child {
+    margin-right: 0;
+  }
+  &:first-child {
+    marigin-left: 0;
+  }
+}
+
+/* icons */
+.icon {
+  display: inline-block;
+  height: 10px;
+  width: 10px;
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: contain;
+  &.share {
+    background-image: url('./icons/share.svg');
+  }
+}

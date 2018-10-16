@@ -17,7 +17,7 @@ const NewsItem = ({ _id, title, views, date }) => (
         </div>
         <div className={styles.info}>
             <div className={styles.infoViews}>
-                <span className={styles.viewsBlock}>{views}</span>
+                <span className={styles.viewsBlock}>{views || '0'}</span>
             </div>
             <div className={styles.infoDate}>{date}</div>
         </div>
