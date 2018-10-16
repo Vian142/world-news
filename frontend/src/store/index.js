@@ -17,7 +17,6 @@ const store = createStore(reducer, loadState());
 
 store.subscribe(
     () => {
-        console.log(store.getState());
         saveState(
             {
                 ...store.getState()

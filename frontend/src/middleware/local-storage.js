@@ -23,7 +23,6 @@ const loadState = () => {
 const saveState = state => {
     try {
         const serializedState = JSON.stringify(state);
-        console.log('serializedState', serializedState);
         localStorage.setItem(defaultKeyStorage, serializedState);
     } catch(err) {
         //
