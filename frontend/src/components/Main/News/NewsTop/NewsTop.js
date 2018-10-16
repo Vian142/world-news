@@ -14,7 +14,7 @@ import NewsTopView from './NewsTopView';
 const mapStateToProps = ({ news }) => {
     const sortedNews = _.sortBy(news, ['views']);
     return {
-        news: sortedNews
+        news: sortedNews.slice(0, 3)
     };
 };
 

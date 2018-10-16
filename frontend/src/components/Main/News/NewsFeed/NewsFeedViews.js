@@ -34,10 +34,10 @@ const NewsFeed = ({ news }) => {
                 </div>
                 <div className={styles.bottom}>
                     <div className={styles.bottomLeft}>
-                        <MoreNews />
+                        {false && <MoreNews />}
                     </div>
                     <div className={styles.bottomRight}>
-                        <Pagination />
+                        {false && <Pagination />}
                     </div>
                 </div>
             </div>

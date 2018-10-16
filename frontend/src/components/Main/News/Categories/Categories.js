@@ -11,11 +11,10 @@ import {setFilter} from '../../../../actions';
 import CategoriesView from './CategoriesView';
 
 //////////////////////////////////////////////////////////////
-const mapStateToProps = (state) => {
-    const { filter } = state;
+const mapStateToProps = ({ filter, categories}) => {
     return {
         activeCategory: filter,
-        categories:  [{ _id: 'all', label: 'all', title: 'Все' }]
+        categories:  [{ _id: 'all', label: 'all', title: 'Все' }, ...categories]
     };
 };
 
