@@ -14,11 +14,17 @@ import store from './store';
 
 import Application from './components/Application';
 import Main from './components/Main/Main';
+import Categories from './components/Categories/Categories';
+import Category from './components/Categories/Category/Category';
+import NewsPage from './components/News/NewsPage/NewsPage';
 import NotFound from './components/NotFound/NotFound';
 
 const history = createBrowserHistory();
 
 //////////////////////////////////////////////////////////////
+
+// todo maps store categories for router exact
+
 const routes = () => (
     <Provider store={store}>
         <BrowserRouter>
@@ -26,7 +32,10 @@ const routes = () => (
                 <Application>
                     <Switch component={Application}>
                         <Route exact path="/" component={Main} />
-                        <Route exact path="/*" component={NotFound} />
+                        <Route path="/categories" component={Categories} />
+                        <Route path="/:category" component={Category} />
+                        <Route path="/:category/:news" component={NewsPage} />
+                        <Route path="/*" component={NotFound} />
                     </Switch>
                 </Application>
             </Router>

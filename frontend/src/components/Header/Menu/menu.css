@@ -1,0 +1,30 @@
+.menu-block {
+  display: block;
+  position: relative;
+  box-sizing: border-box;
+}
+
+.menu-list {
+  display: flex;
+  flex-flow: row nowrap;
+  justify-content: flex-start;
+  padding: 0;
+  margin: 0;
+}
+
+.menu-item {
+  list-style: none;
+  padding: 0 10px;
+  margin: 0;
+}
+
+.menu-link {
+  font-family: 'HelveticaNeue', sans-serif;
+  font-size: 14px;
+  line-height: 1.2;
+  color: #fff;
+  font-weight: 500;
+  font-style: normal;
+  text-decoration: none;
+  text-align: center;
+}

@@ -4,26 +4,23 @@
 // Site - ivan-popov.ru
 // Copyright (C) 2018.
 //////////////////////////////////////////////////////////////
-import _ from 'lodash';
 import { connect } from 'react-redux';
-import { withRouter } from 'react-router-dom';
+
+import CategoriesView from './CategoriesView';
 
 //////////////////////////////////////////////////////////////
-import NewsMainView from './NewsMainView';
-
-//////////////////////////////////////////////////////////////
-const mapStateToProps = ({ news }) => {
-    const sortedNews = _.sortBy(news, ['views']);
-    const mainNews = _.get(sortedNews, '0', []);
+const mapStateToProps = ({ categories }) => {
+    const listCategories = categories;
     return {
-        news: mainNews
+        categories: listCategories
     };
 };
 
 //////////////////////////////////////////////////////////////
-const NewsMain = connect(mapStateToProps)(NewsMainView);
+const Categories = connect(mapStateToProps)(CategoriesView);
 
 //////////////////////////////////////////////////////////////
-export default withRouter(NewsMain);
+export default Categories;
 
 //////////////////////////////////////////////////////////////
+
