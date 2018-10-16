@@ -11,14 +11,17 @@ import classnames from 'classnames';
 import styles from './categories.css';
 
 //////////////////////////////////////////////////////////////
-const CategoriesItem = ({ title, active }) => (
-    <div className={classnames(styles.categoriesItem, (active && styles.active))}>
+const CategoriesItem = ({ title, _id, activeCategory, onSetFilter }) => (
+    <div className={
+        classnames(styles.categoriesItem, (activeCategory == _id) && styles.active)
+    }
+    onClick={() => onSetFilter(_id)}>
         {title}
     </div>
 );
 
 //////////////////////////////////////////////////////////////
-const Categories = ({ categories }) => {
+const Categories = ({ activeCategory, categories, onSetFilter}) => {
     if(_.isEmpty(categories)) return <div className={styles.categoriesContainer} />;
     return (
         <div className={styles.categoriesContainer}>
@@ -28,8 +31,9 @@ const Categories = ({ categories }) => {
                         categories,
                         (category, index) => <CategoriesItem
                             key={index}
+                            onSetFilter={onSetFilter}
                             {...category}
-                            active={index == 0} />
+                            activeCategory={activeCategory} />
                     )
                 }
             </div>

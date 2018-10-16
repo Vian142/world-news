@@ -4,28 +4,21 @@
 // Site - ivan-popov.ru
 // Copyright (C) 2018.
 //////////////////////////////////////////////////////////////
-import { createStore } from 'redux';
-import reducer from '../reducers';
-// import state from './state.json';
+
+export const SET_FILTER = 'SET_FILTER';
 
 //////////////////////////////////////////////////////////////
 
-import { loadState, saveState } from '../middleware/local-storage';
+const setFilter = (filter) => {
+    return {
+        type: SET_FILTER,
+        filter
+    };
+};
 
 //////////////////////////////////////////////////////////////
-const store = createStore(reducer, loadState());
-
-store.subscribe(
-    () => {
-        saveState(
-            {
-                ...store.getState()
-            }
-        );
-    }
-);
-
-//////////////////////////////////////////////////////////////
-export default store;
+export {
+    setFilter
+};
 
 //////////////////////////////////////////////////////////////

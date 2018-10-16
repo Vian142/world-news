@@ -9,6 +9,9 @@
   &.no-empty {
     border: 1px solid #000;
   }
+  &.error {
+    border: 1px solid #f9621e;
+  }
 }
 .input {
   display: block;
@@ -38,6 +41,10 @@
 /* select input */
 .select-input-container {
   display: block;
+  position: relative;
+  box-sizing: border-box;
+  height: 100%;
+  width: 100%;
   cursor: pointer;
   &:after {
     content: '';
@@ -61,6 +68,9 @@
   }
   &.selected {
     border: 1px solid #000;
+  }
+  &.error {
+    border: 1px solid #f9621e;
   }
 }
 
@@ -147,6 +157,9 @@
     font-style: normal;
     cursor: pointer;
     &:hover {
+      color: #000;
+    }
+    &.no-empty {
       color: #000;
     }
   }

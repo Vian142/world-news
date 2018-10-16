@@ -22,7 +22,7 @@ class DateInput extends React.Component {
     }
 
     render() {
-        const { value, name, placeholder} = this.props;
+        const { value, error, name, placeholder} = this.props;
         const properties = {
             type: 'text',
             name,
@@ -33,7 +33,7 @@ class DateInput extends React.Component {
         };
 
         return (
-            <div className={classnames(styles.inputContainer, value && styles.noEmpty)}>
+            <div className={classnames(styles.inputContainer, value && styles.noEmpty, error && styles.error)}>
                 <input {...properties}/>
             </div>
         );

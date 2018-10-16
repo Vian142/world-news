@@ -1,11 +1,11 @@
 {
     "news": [
         {
-            "_id": 0,
+            "_id": "98d4cad6-4d21-4eb3-8c86-39e964a99d06",
             "title": "Найдены виновные в обвале рубля",
             "date": "01:50, 11 сентября 2018",
             "thumbnail": "https://loremflickr.com/640/360",
-            "category": "Спорт",
+            "category": "0",
             "social": "",
             "views": 150
         }
@@ -37,7 +37,5 @@
             "title": "Бизнес"
         }
     ],
-    "filter": {
-        "category": "all"
-    }
+    "filter": "all"
 }

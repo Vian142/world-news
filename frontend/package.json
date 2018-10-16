@@ -13,7 +13,14 @@
     "type": "git"
   },
   "scripts": {
-    "dev": "webpack-dev-server --config ./webpack/webpack.dev.js --mode development"
+    "clean-dist": "rm -f -r -d dist",
+    "dev": "webpack-dev-server --config ./webpack/webpack.dev.js --mode development",
+    "build": "webpack -p --config ./webpack/webpack.prod.js"
+  },
+  "browser": {
+    "net": false,
+    "fs": false,
+    "child_process": false
   },
   "devDependencies": {
     "@babel/core": "^7.1.0",
@@ -53,6 +60,7 @@
     "redux-immutablejs": "0.0.8",
     "sass-loader": "^7.1.0",
     "style-loader": "^0.23.1",
+    "uglifyjs-webpack-plugin": "^2.0.1",
     "webpack": "^4.19.1",
     "webpack-cli": "^3.1.0",
     "webpack-dev-server": "^3.1.8"
@@ -60,6 +68,7 @@
   "dependencies": {
     "classnames": "^2.2.6",
     "lodash": "^4.17.11",
+    "moment": "^2.22.2",
     "normalize.css": "^8.0.0",
     "react": "^16.5.2",
     "react-dom": "^16.5.2"

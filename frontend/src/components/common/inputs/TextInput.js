@@ -22,7 +22,7 @@ class TextInput extends React.Component {
     }
 
     render() {
-        const { value, name, placeholder} = this.props;
+        const { value, error, name, placeholder} = this.props;
         const properties = {
             type: 'text',
             name,
@@ -34,7 +34,7 @@ class TextInput extends React.Component {
 
         return (
             <div className={
-                classnames(styles.inputContainer, value && styles.noEmpty)
+                classnames(styles.inputContainer, value && styles.noEmpty, error && styles.error)
             }>
                 <input {...properties}/>
             </div>

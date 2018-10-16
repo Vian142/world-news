@@ -7,24 +7,12 @@
 
 import React from 'react';
 import classnames from 'classnames';
+import DateNow from '../../common/DateNow/DateNow';
 import Categories from './Categories/Categories';
-import Preview from './Preview/Preview';
+import NewsMain from './NewsMain/NewsMain';
 import NewsTop from './NewsTop/NewsTop';
 import NewsFeed from './NewsFeed/NewsFeed';
 import styles from './news.css';
-
-import Image0 from './image0.jpg';
-
-//////////////////////////////////////////////////////////////
-const news = {
-    _id: 'd5s-ad4d5as-asdwe4a-asd13qw',
-    title: 'Дзюба стал "человеком года" по версии GQ',
-    date: '01:50, 11 сентября 2018',
-    thumbnail: Image0,
-    category: 'Спорт',
-    social: '/',
-    views: 320
-};
 
 //////////////////////////////////////////////////////////////
 class News extends React.Component {
@@ -49,11 +37,11 @@ class News extends React.Component {
                         <div className={classnames(styles.column, styles.left)}>
                             <div className={styles.titleBlock}>
                                 <div className={classnames(styles.date, styles.title)}>
-                                    12 Сентября 2018, Среда, 17:07
+                                    <DateNow locale='ru'/>
                                 </div>
                             </div>
                             <div className={styles.mainNews}>
-                                <Preview {...news} />
+                                <NewsMain/>
                             </div>
                         </div>
                         <div className={classnames(styles.column, styles.right)}>

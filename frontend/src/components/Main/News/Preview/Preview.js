@@ -4,41 +4,22 @@
 // Site - ivan-popov.ru
 // Copyright (C) 2018.
 //////////////////////////////////////////////////////////////
-
-import React from 'react';
-import classnames from 'classnames';
-import Placeholder from './placeholder-image.jpg';
-import styles from './preview.css';
+import { connect } from 'react-redux';
 
 //////////////////////////////////////////////////////////////
-const Social = () => (
-    <div className={styles.socialList}>
-        <a href='/' className={styles.socialLink}>
-            <span className={classnames(styles.icon, styles.share)} />
-        </a>
-    </div>
+
+import PreviewView from './PreviewView';
+
+//////////////////////////////////////////////////////////////
+
+const mapStateToProps = ({ categories }) => (
+    {
+        categories
+    }
 );
 
 //////////////////////////////////////////////////////////////
-const Preview = ({ thumbnail, title, date, category }) => (
-    <div className={styles.preview}>
-        <a href='/' className={styles.previewLink}>
-            <span className={styles.previewImage}
-                style={{ backgroundImage: `url(${thumbnail || Placeholder})` }}
-            />
-            <span className={styles.previewInfo}>
-                <span className={styles.date}>{date}</span>
-                <span className={styles.title}>{title}</span>
-            </span>
-        </a>
-        <div className={styles.previewCategory}>
-            <a href='/sport' className={styles.previewCategoryLink}>{category}</a>
-        </div>
-        <div className={styles.previewSocial}>
-            <Social />
-        </div>
-    </div>
-);
+const Preview = connect(mapStateToProps)(PreviewView);
 
 //////////////////////////////////////////////////////////////
 export default Preview;
