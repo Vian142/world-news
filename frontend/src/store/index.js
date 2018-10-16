@@ -6,10 +6,25 @@
 //////////////////////////////////////////////////////////////
 import { createStore } from 'redux';
 import reducer from '../reducers';
-import state from './state.json';
+// import state from './state.json';
 
 //////////////////////////////////////////////////////////////
-const store = createStore(reducer, state);
+
+import { loadState, saveState } from '../middleware/local-storage';
+
+//////////////////////////////////////////////////////////////
+const store = createStore(reducer, loadState());
+
+store.subscribe(
+    () => {
+        console.log(store.getState());
+        saveState(
+            {
+                ...store.getState()
+            }
+        );
+    }
+);
 
 //////////////////////////////////////////////////////////////
 export default store;

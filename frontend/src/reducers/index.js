@@ -5,12 +5,11 @@
 // Copyright (C) 2018.
 //////////////////////////////////////////////////////////////
 import { combineReducers } from 'redux';
-import news from './news';
+import news, * as fromNews from './news';
 import categories from './categories';
 import filter from './filter';
 
 //////////////////////////////////////////////////////////////
-
 const reducer = combineReducers(
     {
         news,
@@ -20,6 +19,15 @@ const reducer = combineReducers(
 );
 
 //////////////////////////////////////////////////////////////
+const getFilteredNews = (state) => {
+    return fromNews.getFilteredNews(state.news, state.filter);
+};
+
+//////////////////////////////////////////////////////////////
 export default reducer;
+
+export {
+    getFilteredNews
+};
 
 //////////////////////////////////////////////////////////////

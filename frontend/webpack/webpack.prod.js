@@ -7,6 +7,7 @@
 /* global process */
 
 const webpack = require('webpack');
+const { resolve } = require('path');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 
@@ -15,7 +16,7 @@ const devMode = process.env.NODE_ENV !== 'production';
 
 //////////////////////////////////////////////////////////////
 module.exports = {
-    entry: './src/index.js',
+    context: resolve(__dirname, '../src'),
     module: {
         rules: [
             {
@@ -53,7 +54,7 @@ module.exports = {
                         loader: 'file-loader',
                         options: {
                             name: '[name][hash].[ext]',
-                            outputPath: './images/',
+                            outputPath: 'images/',
                         },
                     },
                 ],
@@ -65,7 +66,7 @@ module.exports = {
                         loader: 'file-loader',
                         options: {
                             name: '[name][hash].[ext]',
-                            outputPath: './fonts/',
+                            outputPath: 'fonts/',
                         },
                     },
                 ],
@@ -75,27 +76,19 @@ module.exports = {
     resolve: {
         extensions: ['*', '.js', '.jsx'],
     },
+    entry: '../src/index.js',
     output: {
-        path: `${__dirname}/dist`,
+        filename: 'js/bundle.[hash].min.js',
+        path: resolve(__dirname, '../dist'),
         publicPath: '/',
-        filename: 'bundle.js',
     },
-    plugins: [
-        new HtmlWebpackPlugin({ template: './src/index.html' }),
-        new webpack.HotModuleReplacementPlugin(),
-        new MiniCssExtractPlugin({
-            // Options similar to the same options in webpackOptions.output
-            // both options are optional
-            filename: '[name].[hash].css',
-            chunkFilename: '[id].[hash].css',
-        }),
-    ],
-    devtool: 'eval-source-map',
-    devServer: {
-        contentBase: `${__dirname}/dist`,
-        hot: true,
-        historyApiFallback: true,
+    node: {
+        child_process: 'empty',
+        fs: 'empty',
+        module: 'empty'
     },
+    plugins: [],
+    devtool: 'eval-source-map'
 };
 
 

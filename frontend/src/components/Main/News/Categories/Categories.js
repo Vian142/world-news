@@ -5,20 +5,29 @@
 // Copyright (C) 2018.
 //////////////////////////////////////////////////////////////
 import { connect } from 'react-redux';
+import {setFilter} from '../../../../actions';
 
 //////////////////////////////////////////////////////////////
 import CategoriesView from './CategoriesView';
 
 //////////////////////////////////////////////////////////////
-const mapStateToProps = ({ category, categories }) => {
+const mapStateToProps = (state) => {
+    const { filter } = state;
     return {
-        activeCategory: category,
-        categories:  [{ _id: 'all', title: 'Все' }, ...categories]
+        activeCategory: filter,
+        categories:  [{ _id: 'all', label: 'all', title: 'Все' }]
+    };
+};
+
+
+const mapDispatchToProps = dispatch => { 
+    return {
+        onSetFilter: filter => dispatch(setFilter(filter))
     };
 };
 
 //////////////////////////////////////////////////////////////
-const Categories = connect(mapStateToProps)(CategoriesView);
+const Categories = connect(mapStateToProps, mapDispatchToProps)(CategoriesView);
 
 //////////////////////////////////////////////////////////////
 export default Categories;

@@ -4,7 +4,21 @@
 // Site - ivan-popov.ru
 // Copyright (C) 2018.
 //////////////////////////////////////////////////////////////
-const reducer = (state = {}, action) => {
+
+const initialCategories = [
+    {
+        _id: '0',
+        label: 'sport',
+        title: 'Спорт'
+    },
+    {
+        _id: '1',
+        label: 'politics',
+        title: 'Политика'
+    }
+];
+
+const reducer = (state = initialCategories, action) => {
     switch(action.type) {
     default:
         return state;

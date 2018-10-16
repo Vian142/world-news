@@ -21,7 +21,7 @@ const newsReducer = (state = {}, action) => {
     }
 };
 
-const reducer = (state = {}, action) => {
+const reducer = (state = [], action) => {
     switch(action.type) {
     case ADD_NEWS:
         return [...state, newsReducer(undefined, action)];
@@ -38,6 +38,17 @@ const reducer = (state = {}, action) => {
 };
 
 //////////////////////////////////////////////////////////////
+const getFilteredNews = (state, filter) => {
+    if(filter == 'all') return state;
+
+    return state.filter(news => news.category == filter);
+};
+
+//////////////////////////////////////////////////////////////
 export default reducer;
+
+export {
+    getFilteredNews
+};
 
 //////////////////////////////////////////////////////////////

@@ -4,24 +4,21 @@
 // Site - ivan-popov.ru
 // Copyright (C) 2018.
 //////////////////////////////////////////////////////////////
-import { connect } from 'react-redux';
 
-import { getFilteredNews } from '../../../../reducers';
-
-//////////////////////////////////////////////////////////////
-import NewsFeedView from './NewsFeedViews';
+export const SET_FILTER = 'SET_FILTER';
 
 //////////////////////////////////////////////////////////////
-const mapStateToProps = (state) => (
-    {
-        news: getFilteredNews(state)
-    }
-);
+
+const setFilter = (filter) => {
+    return {
+        type: SET_FILTER,
+        filter
+    };
+};
 
 //////////////////////////////////////////////////////////////
-const NewsFeed = connect(mapStateToProps)(NewsFeedView);
-
-//////////////////////////////////////////////////////////////
-export default NewsFeed;
+export {
+    setFilter
+};
 
 //////////////////////////////////////////////////////////////

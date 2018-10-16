@@ -4,8 +4,12 @@
 // Site - ivan-popov.ru
 // Copyright (C) 2018.
 //////////////////////////////////////////////////////////////
-const reducer = (state = {}, action) => {
+import {SET_FILTER} from '../actions';
+
+//////////////////////////////////////////////////////////////
+const reducer = (state = 'all', action) => {
     switch(action.type) {
+    case SET_FILTER: return action.filter;
     default:
         return state;
     }
