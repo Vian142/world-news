@@ -1,0 +1,36 @@
+.news-container {
+  display: flex;
+  flex-flow: row nowrap;
+}
+
+.thumbnail {
+  flex: 0 0 150px;
+}
+.thumbnail-image {
+  display: block;
+  width: 150px;
+  height: 100px;
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+}
+.content {
+  display: block;
+  box-sizing: border-box;
+  padding: 3px 0 0 15px;
+}
+
+.title {
+  display: block;
+  position: relative;
+  margin-bottom: 10px;
+  &-link {
+    font-family: 'HelveticaNue', sans-serif;
+    font-size: 18px;
+    line-height: 1.2;
+    color: #2962ff;
+    font-weight: 500;
+    font-style: normal;
+    text-decoration: none;
+  }
+}

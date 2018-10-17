@@ -14,7 +14,6 @@ import store from './store';
 
 import Application from './components/Application';
 import Main from './components/Main/Main';
-import Categories from './components/Categories/Categories';
 import Category from './components/Categories/Category/Category';
 import NewsPage from './components/News/NewsPage/NewsPage';
 import NotFound from './components/NotFound/NotFound';
@@ -30,11 +29,10 @@ const routes = () => (
         <BrowserRouter>
             <Router history={history}>
                 <Application>
-                    <Switch component={Application}>
+                    <Switch>
                         <Route exact path="/" component={Main} />
-                        <Route path="/categories" component={Categories} />
-                        <Route path="/:category" component={Category} />
-                        <Route path="/:category/:news" component={NewsPage} />
+                        <Route exact path="/:category" component={Category} />
+                        <Route exact path="/:category/:news" component={NewsPage} />
                         <Route path="/*" component={NotFound} />
                     </Switch>
                 </Application>

@@ -5,13 +5,17 @@
 // Copyright (C) 2018.
 //////////////////////////////////////////////////////////////
 import { connect } from 'react-redux';
-
+import _ from 'lodash';
 import CategoryView from './CategoryView';
 
 //////////////////////////////////////////////////////////////
-const mapStateToProps = ({categories}) => {
+const mapStateToProps = ({ categories, news }, props) => {
+    const categoryLabel = _.get(props, 'match.params.category');
+    const category = _.find(categories, { label: categoryLabel });
+    const filterNews = _.filter(news, item => item.category == category._id);
     return {
-        categories
+        news: filterNews,
+        category
     };
 };
 

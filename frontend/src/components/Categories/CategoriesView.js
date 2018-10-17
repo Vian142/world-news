@@ -12,18 +12,18 @@ import Header from '../Header/Header';
 import styles from './categories.css';
 
 //////////////////////////////////////////////////////////////
-const CategoryItem = ({ _id, title }) => (
+const CategoryItem = ({ label, title }) => (
     <div className={styles.categoryItem}>
-        <Link to={`/${_id}`} className={styles.categoryLink}>
-            {title}
-        </Link>
+        <div className={styles.categoryTitle}>
+            <Link to={`/${label}`} className={styles.categoryTitleLink}>{title}</Link>
+        </div>
     </div>
 );
 
 //////////////////////////////////////////////////////////////
 const CategoriesList = ({ categories }) => {
     return (
-        <div className={styles.wrapperCategoriesList}>
+        <div className={styles.categoriesList}>
             {
                 _.map(categories, (category, index) => <CategoryItem key={index} {...category} />)
             }
@@ -31,6 +31,7 @@ const CategoriesList = ({ categories }) => {
     );
 };
 
+//////////////////////////////////////////////////////////////
 class CategoriesView extends React.PureComponent {
     render() {
         const { categories } = this.props;
@@ -38,7 +39,7 @@ class CategoriesView extends React.PureComponent {
             <div className={styles.wrapper} >
                 <Header />
                 <div className={styles.contentWrapper}>
-                    <div className={styles.title}>Список категорий новостей</div>
+                    <div className={styles.mainTitle}>Список категорий новостей</div>
                     <CategoriesList categories={categories} />
                 </div>
             </div>

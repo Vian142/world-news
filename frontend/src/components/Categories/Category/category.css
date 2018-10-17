@@ -1,0 +1,38 @@
+.wrapper {
+  display: block;
+  position: relative;
+  box-sizing: border-box;
+}
+
+.content {
+  display: block;
+  box-sizing: border-box;
+  width: 100%;
+  max-width: 940px;
+  padding: 10px 8px 5px;
+  margin: 0 auto 10px;
+}
+
+.title {
+  display: block;
+  position: relative;
+  font-family: 'HelveticaNue', sans-serif;
+  font-size: 22px;
+  line-height: 1.2;
+  color: #000;
+  font-weight: 500;
+  font-style: normal;
+  text-align: left;
+  text-decoration: none;
+}
+
+/* news */
+.news-list {
+  display: block;
+  &-item {
+    display: block;
+    width: 100%;
+    max-width: 100%;
+    margin: 0 0 20px;
+  }
+}

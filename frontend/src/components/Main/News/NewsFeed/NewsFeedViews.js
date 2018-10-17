@@ -9,6 +9,7 @@ import React from 'react';
 import _ from 'lodash';
 import Preview from '../Preview/Preview';
 import Pagination from '../../../common/Pagination/Pagination';
+import withPagination from '../../../common/withPagination';
 import styles from './newsfeed.css';
 
 //////////////////////////////////////////////////////////////
@@ -19,7 +20,9 @@ const MoreNews = () => (
 );
 
 //////////////////////////////////////////////////////////////
-const NewsFeed = ({ news }) => {
+const NewsFeed = (props) => {
+    console.log(props);
+    const { news } = props;
     return (
         <div className={styles.wrapper}>
             <div className={styles.container}>
@@ -46,6 +49,11 @@ const NewsFeed = ({ news }) => {
 };
 
 //////////////////////////////////////////////////////////////
-export default NewsFeed;
+export default withPagination(NewsFeed,
+    {
+        field: 'news',
+        limit: 10
+    }
+);
 
 //////////////////////////////////////////////////////////////
