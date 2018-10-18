@@ -6,22 +6,30 @@
 //////////////////////////////////////////////////////////////
 
 import React from 'react';
+import _ from 'lodash';
 import styles from './pagination.css';
 
 //////////////////////////////////////////////////////////////
+
 class Pagination extends React.Component {
+    constructor(props) {
+        super(props);
+        this.state = {};
+    }
     render() {
+        const { pages } = this.props;
         return (
             <div className={styles.wrapper}>
-                <div className={styles.pagination}>
-                    <div className={styles.paginationItem}>1</div>
-                    <div className={styles.paginationItem}>2</div>
-                    <div className={styles.paginationItem}>3</div>
-                </div>
+                {
+                    _.map(_.times(pages, Number), (item, i) => {
+                        return <li key={i}>{item + 1}</li>;
+                    })
+                }
             </div>
         );
     }
 }
+
 //////////////////////////////////////////////////////////////
 export default Pagination;
 

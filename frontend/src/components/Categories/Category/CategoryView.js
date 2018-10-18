@@ -12,13 +12,9 @@ import NewsBlock from './NewsBlock/NewsBlock';
 import styles from './category.css';
 
 //////////////////////////////////////////////////////////////
-
-//////////////////////////////////////////////////////////////
 class CategoryView extends React.PureComponent {
     render() {
         const { category, news } = this.props;
-        console.log(news);
-
         const categoryTitle = _.get(category, 'title', '');
         return (
             <div className={styles.wrapper}>

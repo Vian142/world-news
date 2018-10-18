@@ -8,7 +8,7 @@
 import React from 'react';
 import _ from 'lodash';
 import Preview from '../Preview/Preview';
-import Pagination from '../../../common/Pagination/Pagination';
+// import Pagination from '../../../common/Pagination/Pagination';
 import withPagination from '../../../common/withPagination';
 import styles from './newsfeed.css';
 
@@ -38,9 +38,6 @@ const NewsFeed = (props) => {
                 <div className={styles.bottom}>
                     <div className={styles.bottomLeft}>
                         {false && <MoreNews />}
-                    </div>
-                    <div className={styles.bottomRight}>
-                        {false && <Pagination />}
                     </div>
                 </div>
             </div>
