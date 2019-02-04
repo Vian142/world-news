@@ -4,28 +4,20 @@
 // Site - ivan-popov.ru
 // Copyright (C) 2018.
 //////////////////////////////////////////////////////////////
-import { createStore } from 'redux';
-import reducer from '../reducers';
-// import state from './state';
+import { connect } from 'react-redux';
+
+import { getFilteredNews } from '../../../../../reducers';
 
 //////////////////////////////////////////////////////////////
-
-import { loadState, saveState } from '../middleware/local-storage';
+import NewsFeed from './NewsFeed';
 
 //////////////////////////////////////////////////////////////
-const store = createStore(reducer, loadState());
-
-store.subscribe(
-    () => {
-        saveState(
-            {
-                ...store.getState()
-            }
-        );
+const mapStateToProps = (state) => (
+    {
+        news: getFilteredNews(state)
     }
 );
-
 //////////////////////////////////////////////////////////////
-export default store;
+export default connect(mapStateToProps)(NewsFeed);
 
 //////////////////////////////////////////////////////////////

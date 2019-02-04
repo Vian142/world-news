@@ -4,17 +4,17 @@
 // Site - ivan-popov.ru
 // Copyright (C) 2018.
 //////////////////////////////////////////////////////////////
-import initialState from '../store/state';
+import { compose, withState, withHandlers } from 'recompose';
+import Banner from './Banner';
 
 //////////////////////////////////////////////////////////////
-const reducer = (state = initialState.categories, action) => {
-    switch(action.type) {
-    default:
-        return state;
-    }
-};
 
-//////////////////////////////////////////////////////////////
-export default reducer;
+export default compose(
+    withState('showForm', 'setShowForm', false),
+    withHandlers({
+        onShowForm: props => props.setShowForm(true),
+        onCloseForm: props => props.setShowForm(false)
+    }),
+)(Banner);
 
 //////////////////////////////////////////////////////////////

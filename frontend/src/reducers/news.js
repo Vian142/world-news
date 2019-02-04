@@ -5,6 +5,7 @@
 // Copyright (C) 2018.
 //////////////////////////////////////////////////////////////
 import { ADD_NEWS, DELETE_NEWS } from '../actions';
+import initialState from '../store/state';
 
 //////////////////////////////////////////////////////////////
 const newsReducer = (state = {}, action) => {
@@ -21,7 +22,7 @@ const newsReducer = (state = {}, action) => {
     }
 };
 
-const reducer = (state = [], action) => {
+const reducer = (state = initialState.news, action) => {
     switch(action.type) {
     case ADD_NEWS:
         return [...state, newsReducer(undefined, action)];

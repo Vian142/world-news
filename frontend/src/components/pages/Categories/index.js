@@ -4,17 +4,19 @@
 // Site - ivan-popov.ru
 // Copyright (C) 2018.
 //////////////////////////////////////////////////////////////
-import initialState from '../store/state';
+import { connect } from 'react-redux';
+
+import Categories from './Categories';
 
 //////////////////////////////////////////////////////////////
-const reducer = (state = initialState.categories, action) => {
-    switch(action.type) {
-    default:
-        return state;
-    }
+const mapStateToProps = ({ categories }) => {
+    return {
+        categories
+    };
 };
 
 //////////////////////////////////////////////////////////////
-export default reducer;
+export default connect(mapStateToProps)(Categories);
 
 //////////////////////////////////////////////////////////////
+

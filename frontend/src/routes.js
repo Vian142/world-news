@@ -13,11 +13,12 @@ import { Provider } from 'react-redux';
 import store from './store';
 
 import Application from './components/Application';
-import Main from './components/Main/Main';
-import Categories from './components/Categories/Categories';
-import Category from './components/Categories/Category/Category';
-import NewsPage from './components/News/NewsPage/NewsPage';
-import NotFound from './components/NotFound/NotFound';
+
+import Main from './components/pages/Main/Main';
+import Categories from './components/pages/Categories/Categories';
+import Category from './components/pages/Category/Category';
+import News from './components/pages/News/News';
+import NotFound from './components/pages/NotFound/NotFound';
 
 const history = createBrowserHistory();
 
@@ -34,7 +35,7 @@ const routes = () => (
                         <Route exact path="/" component={Main} />
                         <Route path="/categories" component={Categories} />
                         <Route path="/:category" component={Category} />
-                        <Route path="/:category/:news" component={NewsPage} />
+                        <Route path="/:category/:news" component={News} />
                         <Route path="/*" component={NotFound} />
                     </Switch>
                 </Application>

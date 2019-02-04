@@ -4,28 +4,19 @@
 // Site - ivan-popov.ru
 // Copyright (C) 2018.
 //////////////////////////////////////////////////////////////
-import { createStore } from 'redux';
-import reducer from '../reducers';
-// import state from './state';
+
+import React from 'react';
 
 //////////////////////////////////////////////////////////////
-
-import { loadState, saveState } from '../middleware/local-storage';
-
-//////////////////////////////////////////////////////////////
-const store = createStore(reducer, loadState());
-
-store.subscribe(
-    () => {
-        saveState(
-            {
-                ...store.getState()
-            }
+class Category extends React.PureComponent {
+    render() {
+        return (
+            <div>Список новостей из категории ... </div>
         );
     }
-);
+}
 
 //////////////////////////////////////////////////////////////
-export default store;
+export default Category;
 
 //////////////////////////////////////////////////////////////

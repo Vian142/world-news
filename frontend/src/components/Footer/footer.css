@@ -25,7 +25,7 @@
   flex-flow: row nowrap;
   justify-content: space-between;
   .left {
-    flex: 0 0 45%;
+    flex: 0 0 55%;
   }
   .right {
     flex: 0 0 45%;
@@ -60,6 +60,7 @@
     }
   }
   &-link {
+    display: inline;
     font-family: 'HelveticaNeue', sans-serif;
     font-size: 11px;
     line-height: 1.2;
@@ -67,6 +68,7 @@
     font-weight: 500;
     font-style: normal;
     text-decoration: none;
+    word-wrap: normal;
     &:hover {
       text-decoration: underline;
     }
@@ -88,5 +90,31 @@
     color: #fff;
     font-weight: 500;
     font-style: normal;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .footer-row {
+    display: block;
+  }
+  .footer-menu {
+    margin-bottom: 35px;
+  }
+}
+
+@media screen and (max-width: 480px) {
+  .menu {
+    &-list {
+      flex-flow: column wrap;
+    }
+    &-item {
+      text-align: center;
+    }
+    &-link {
+      font-size: 12px;
+    }
+  }
+  .copyright.right {
+    text-align: center;
   }
 }

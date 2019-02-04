@@ -4,28 +4,18 @@
 // Site - ivan-popov.ru
 // Copyright (C) 2018.
 //////////////////////////////////////////////////////////////
-import { createStore } from 'redux';
-import reducer from '../reducers';
-// import state from './state';
+import { connect } from 'react-redux';
+
+import Category from './Category';
 
 //////////////////////////////////////////////////////////////
-
-import { loadState, saveState } from '../middleware/local-storage';
-
-//////////////////////////////////////////////////////////////
-const store = createStore(reducer, loadState());
-
-store.subscribe(
-    () => {
-        saveState(
-            {
-                ...store.getState()
-            }
-        );
-    }
-);
+const mapStateToProps = ({categories}) => {
+    return {
+        categories
+    };
+};
 
 //////////////////////////////////////////////////////////////
-export default store;
+export default connect(mapStateToProps)(Category);
 
 //////////////////////////////////////////////////////////////

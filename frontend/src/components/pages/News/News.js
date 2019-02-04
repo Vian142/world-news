@@ -4,28 +4,17 @@
 // Site - ivan-popov.ru
 // Copyright (C) 2018.
 //////////////////////////////////////////////////////////////
-import { createStore } from 'redux';
-import reducer from '../reducers';
-// import state from './state';
+
+import React from 'react';
 
 //////////////////////////////////////////////////////////////
-
-import { loadState, saveState } from '../middleware/local-storage';
-
-//////////////////////////////////////////////////////////////
-const store = createStore(reducer, loadState());
-
-store.subscribe(
-    () => {
-        saveState(
-            {
-                ...store.getState()
-            }
-        );
-    }
-);
+const News = () => {
+    return (
+        <div>Страница новости</div>
+    );
+};
 
 //////////////////////////////////////////////////////////////
-export default store;
+export default News;
 
 //////////////////////////////////////////////////////////////
