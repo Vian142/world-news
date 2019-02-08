@@ -40,26 +40,23 @@ const BannerFormCard = ({ onClose }) => (
 );
 
 //////////////////////////////////////////////////////////////
-const Banner = (props) => {
-    console.log('asd', props);
-    return (
-        <div className={styles.bannerWrapper}>
-            <CSSTransition timeout={1000} in={props.showForm}
-                classNames={{
-                    enter: styles.show,
-                    enterDone: styles.show,
-                    exit: styles.hide,
-                    exitDone: styles.hide
-                }}
-            >
-                <div className={classnames(styles.bannerCardWrapper)}>
-                    <BannerCard onShowForm={props.onShowForm} />
-                    <BannerFormCard onClose={props.onCloseForm} />
-                </div>
-            </CSSTransition>
-        </div>
-    );
-};
+const Banner = (props) =>(
+    <div className={styles.bannerWrapper}>
+        <CSSTransition timeout={1000} in={props.showForm}
+            classNames={{
+                enter: styles.show,
+                enterDone: styles.show,
+                exit: styles.hide,
+                exitDone: styles.hide
+            }}
+        >
+            <div className={classnames(styles.bannerCardWrapper)}>
+                <BannerCard onShowForm={props.onShowForm} />
+                <BannerFormCard onClose={props.onCloseForm} />
+            </div>
+        </CSSTransition>
+    </div>
+);
 
 //////////////////////////////////////////////////////////////
 export default Banner;

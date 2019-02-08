@@ -1,0 +1,30 @@
+.wrapper {
+  display: block;
+  position: relative;
+}
+
+.container {
+  display: block;
+  box-sizing: border-box;
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 10px 0 5px;
+}
+.title {
+  display: block;
+  position: relative;
+  font-family: 'HelveticaNeue', sans-serif;
+  font-size: 24px;
+}
+
+.content {
+  display: block;
+  padding-top: 15px;
+}
+
+.list {
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: space-between;
+}

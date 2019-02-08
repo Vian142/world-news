@@ -4,23 +4,21 @@
 // Site - ivan-popov.ru
 // Copyright (C) 2018.
 //////////////////////////////////////////////////////////////
+import _ from 'lodash';
 import { connect } from 'react-redux';
 
 //////////////////////////////////////////////////////////////
-
-import Preview from './Preview';
-import { compose } from 'redux';
+import NewsTop from './NewsTop';
 
 //////////////////////////////////////////////////////////////
-const mapStateToProps = ({ categories }) => (
-    {
-        categories
-    }
-);
+const mapStateToProps = ({ news }) => {
+    const sortedNews = _.sortBy(news, ['views']);
+    return {
+        news: sortedNews.slice(0, 3)
+    };
+};
 
 //////////////////////////////////////////////////////////////
-export default compose(
-    connect(mapStateToProps)
-)(Preview);
+export default connect(mapStateToProps)(NewsTop);
 
 //////////////////////////////////////////////////////////////

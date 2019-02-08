@@ -5,43 +5,39 @@
 // Copyright (C) 2018.
 //////////////////////////////////////////////////////////////
 
-export const ADD_NEWS = 'ADD_NEWS';
-export const EDIT_NEWS = 'EDIT_NEWS';
-export const DELETE_NEWS = 'DELETE_NEWS';
-export const ADD_VIEW = 'ADD_VIEW';
+import { v4 } from 'uuid';
+import { ADD_NEWS, DELETE_NEWS, ADD_VIEWS } from '../types';
 
 //////////////////////////////////////////////////////////////
-import {v4} from 'uuid';
-
-//////////////////////////////////////////////////////////////
-const addNews = ({title, date, category, thumbnail}) => ({
+const addNews = ({ title, date, category, thumbnail }) => ({
     type: ADD_NEWS,
-    _id: v4(),
-    title,
-    date,
-    category,
-    thumbnail,
-    views: 0
+    payload: {
+        _id: v4(),
+        title,
+        date,
+        category,
+        thumbnail,
+        views: 0
+    }
 });
 
 //////////////////////////////////////////////////////////////
 const deleteNews = _id => ({
     type: DELETE_NEWS,
-    _id
+    payload: _id
 });
 
 //////////////////////////////////////////////////////////////
-const addView = news => ({
-    type: ADD_VIEW,
-    ...news,
-    views: news.views + 1
+const addViews = _id => ({
+    type: ADD_VIEWS,
+    payload: _id
 });
 
 //////////////////////////////////////////////////////////////
 export {
     addNews,
     deleteNews,
-    addView
+    addViews
 };
 
 //////////////////////////////////////////////////////////////

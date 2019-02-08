@@ -12,8 +12,8 @@ import Banner from './Banner';
 export default compose(
     withState('showForm', 'setShowForm', false),
     withHandlers({
-        onShowForm: props => props.setShowForm(true),
-        onCloseForm: props => props.setShowForm(false)
+        onShowForm: props => () => props.setShowForm(true),
+        onCloseForm: props => () => props.setShowForm(false)
     }),
 )(Banner);
 

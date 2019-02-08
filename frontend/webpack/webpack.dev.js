@@ -91,6 +91,6 @@ module.exports = {
         contentBase: `${__dirname}/dist`,
         hot: true,
         historyApiFallback: true,
-        port: 8080
+        port: 8001
     },
 };

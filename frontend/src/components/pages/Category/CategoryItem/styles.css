@@ -1,0 +1,49 @@
+.category-item {
+  flex: 0 0 calc(100% / 3);
+  min-height: 230px;
+}
+.thumbnail {
+  display: block;
+  height: 230px;
+  background-repeat: no-repeat;
+  background-position: 0 0;
+  background-size: cover;
+  margin-bottom: 5px;
+}
+.content {
+  display: block;
+  box-sizing: border-box;
+  padding: 0 10px;
+}
+
+.title {
+  margin-bottom: 3px;
+  font-family: 'HelveticaNeue', sans-serif;
+  font-size: 18px;
+  color: #000;
+  line-height: 1.2;
+  font-weight: 600;
+  font-style: normal;
+}
+
+.description {
+  display: block;
+  margin-bottom: 10px;
+  font-family: 'HelveticaNeue', sans-serif;
+  font-size: 16px;
+  color: #000;
+  line-height: 1.2;
+  font-weight: 300;
+  font-style: italic;
+}
+
+.bottom {
+  display: flex;
+  flex-flow: row nowrap;
+  justify-content: flex-start;
+  align-items: center;
+  height: 30px;
+  .item {
+    margin-right: 10px;
+  }
+}

@@ -4,11 +4,11 @@
 // Site - ivan-popov.ru
 // Copyright (C) 2018.
 //////////////////////////////////////////////////////////////
-import initialState from '../store/state';
+import { categories } from './state';
 
 //////////////////////////////////////////////////////////////
-const reducer = (state = initialState.categories, action) => {
-    switch(action.type) {
+const reducer = (state = categories, {type}) => {
+    switch(type) {
     default:
         return state;
     }

@@ -10,7 +10,7 @@ import classnames from 'classnames';
 import DateNow from '../../../common/DateNow/DateNow';
 import Categories from './Categories';
 import NewsMain from './NewsMain';
-import NewsTop from './NewsTop/NewsTop';
+import NewsTop from './NewsTop';
 import NewsFeed from './NewsFeed';
 import styles from './news.css';
 

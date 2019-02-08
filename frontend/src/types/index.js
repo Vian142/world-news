@@ -4,23 +4,13 @@
 // Site - ivan-popov.ru
 // Copyright (C) 2018.
 //////////////////////////////////////////////////////////////
-import { connect } from 'react-redux';
+
+export const ADD_NEWS = 'ADD_NEWS';
+export const EDIT_NEWS = 'EDIT_NEWS';
+export const DELETE_NEWS = 'DELETE_NEWS';
+export const ADD_VIEWS = 'ADD_VIEWS';
 
 //////////////////////////////////////////////////////////////
-
-import Preview from './Preview';
-import { compose } from 'redux';
-
-//////////////////////////////////////////////////////////////
-const mapStateToProps = ({ categories }) => (
-    {
-        categories
-    }
-);
-
-//////////////////////////////////////////////////////////////
-export default compose(
-    connect(mapStateToProps)
-)(Preview);
+export const SET_FILTER = 'SET_FILTER';
 
 //////////////////////////////////////////////////////////////

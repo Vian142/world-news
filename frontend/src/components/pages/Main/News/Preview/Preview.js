@@ -7,6 +7,7 @@
 
 import React from 'react';
 import _ from 'lodash';
+import { Link } from 'react-router-dom';
 import classnames from 'classnames';
 import Placeholder from './placeholder-image.jpg';
 import styles from './preview.css';
@@ -21,8 +22,7 @@ const Social = () => (
 );
 
 //////////////////////////////////////////////////////////////
-const Preview = ({ _id, thumbnail, title, date, category, categories }) => {
-
+const Preview = ({ _id, thumbnail, title, date, category, categories, views}) => {
     const thumbnailIamge = _.get(thumbnail, 'data');
     const categoryNews = _.find(categories, { _id: category });
     
@@ -31,19 +31,23 @@ const Preview = ({ _id, thumbnail, title, date, category, categories }) => {
 
     return (
         <div className={styles.preview}>
-            <a href='/' className={styles.previewLink}>
+            <Link to={`/${categoryLabel}/${_id}`} className={styles.previewLink}>
                 <span className={styles.previewImage}
                     style={{ backgroundImage: `url(${thumbnailIamge || Placeholder})` }}
                 />
                 <span className={styles.previewInfo}>
-                    <span className={classnames(styles.date, !thumbnailIamge && styles.black)}>{date}</span>
-                    <span className={classnames(styles.title, !thumbnailIamge && styles.black)}>{title}</span>
+                    <span className={classnames(styles.date, !thumbnailIamge && styles.black)}>
+                        {date}
+                    </span>
+                    <span className={classnames(styles.title, !thumbnailIamge && styles.black)}>
+                        {title} {views}
+                    </span>
                 </span>
-            </a>
+            </Link>
             <div className={styles.previewCategory}>
-                <a href={`/${categoryLabel}/${_id}`} className={styles.previewCategoryLink}>
+                <Link to={`/${categoryLabel}`} className={styles.previewCategoryLink}>
                     {categoryTitle}
-                </a>
+                </Link>
             </div>
             <div className={styles.previewSocial}>
                 <Social />

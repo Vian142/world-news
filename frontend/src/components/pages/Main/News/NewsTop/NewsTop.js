@@ -4,22 +4,45 @@
 // Site - ivan-popov.ru
 // Copyright (C) 2018.
 //////////////////////////////////////////////////////////////
+
+import React from 'react';
 import _ from 'lodash';
-import { connect } from 'react-redux';
+import styles from './newstop.css';
 
 //////////////////////////////////////////////////////////////
-import NewsTopView from './NewsTopView';
+const NewsItem = ({ _id, title, views, date }) => (
+    <div className={styles.newsItem}>
+        <div className={styles.title}>
+            <a href={`/${_id}`} className={styles.titleLink}>{title}</a>
+        </div>
+        <div className={styles.info}>
+            <div className={styles.infoViews}>
+                <span className={styles.viewsBlock}>{views}</span>
+            </div>
+            <div className={styles.infoDate}>{date}</div>
+        </div>
+    </div>
+);
 
 //////////////////////////////////////////////////////////////
-const mapStateToProps = ({ news }) => {
-    const sortedNews = _.sortBy(news, ['views']);
-    return {
-        news: sortedNews.slice(0, 3)
-    };
-};
+const NewsTop = ({ news }) => (
+    <div className={styles.wrapper}>
+        <div className={styles.container}>
+            {
+                (news.length > 0)
+                    ? <div className={styles.newsList}>
+                        {
+                            _.map(news, item => <NewsItem key={item._id} {...item} />)
+                        }
+                    </div>
+                    : <div className={styles.newsEmpty}>
+                        Новостей нету
+                    </div>
+            }
 
-//////////////////////////////////////////////////////////////
-const NewsTop = connect(mapStateToProps)(NewsTopView);
+        </div>
+    </div>
+);
 
 //////////////////////////////////////////////////////////////
 export default NewsTop;
